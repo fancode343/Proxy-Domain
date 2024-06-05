@@ -5,7 +5,7 @@ const port = 80;
 
 // Proxy configuration
 app.use('/', createProxyMiddleware({
-    target: 'http://de.vpsfree.es:5933',
+    target: 'http://de.vpsfree.es',
     changeOrigin: true,
     onProxyReq: (proxyReq, req, res) => {
         // Modify the request here if needed
