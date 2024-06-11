@@ -1,7 +1,7 @@
 const express = require('express');
 const { createProxyMiddleware } = require('http-proxy-middleware');
 const app = express();
-const port = 80;
+const port = 8080;
 
 // Proxy configuration
 app.use('/', createProxyMiddleware({
