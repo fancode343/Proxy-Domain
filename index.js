@@ -1,5 +1,6 @@
 const express = require('express');
 const { createProxyMiddleware } = require('http-proxy-middleware');
+const path = require('path');
 const app = express();
 const port = 8080;
 
@@ -8,6 +9,9 @@ app.use((req, res, next) => {
     console.log(`Request URL: ${req.url}`);
     next();
 });
+
+// Serve static files from the "public" directory
+app.use(express.static(path.join(__dirname, 'public')));
 
 // Proxy configuration
 app.use('/', createProxyMiddleware({
@@ -24,12 +28,13 @@ app.use('/', createProxyMiddleware({
     onError: (err, req, res) => {
         // Handle errors here
         console.error(`Error occurred while proxying: ${err.message}`);
-        res.status(500).send('Something went wrong.');
+        // Serve the error.html file when the proxy target is unreachable
+        res.status(500).sendFile(path.join(__dirname, 'public', 'error.html'));
     }
 }));
-
 
 // Start the server
 app.listen(port, () => {
     console.log(`Proxy server listening on port ${port}`);
 });
+
