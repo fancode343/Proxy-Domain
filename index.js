@@ -10,7 +10,7 @@ app.use((req, res, next) => {
 });
 
 // Proxy configuration
-app.use('/admin', createProxyMiddleware({
+app.use('/', createProxyMiddleware({
     target: 'http://de.vpsfree.es:5093',
     changeOrigin: true,
     onProxyReq: (proxyReq, req, res) => {
