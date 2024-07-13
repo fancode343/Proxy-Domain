@@ -6,7 +6,7 @@ const https = require('https');
 
 const app = express();
 const port = 8080;
-const targetUrl = 'http://de.vpsfree.es:5705/';
+const targetUrl = 'http://de.vpsfree.es:5705';
 
 // Function to check if the target URL is online
 function checkTargetOnline(url) {
