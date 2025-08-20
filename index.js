@@ -6,7 +6,7 @@ const https = require('https');
 
 const app = express();
 const port = 8080;
-const targetUrl = 'http://epstien.lmnet.cf';
+const targetUrl = 'http://lmnet.cf';
 
 // Function to check if the target URL is online
 function checkTargetOnline(url) {
