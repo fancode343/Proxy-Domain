@@ -6,7 +6,7 @@ const https = require('https');
 
 const app = express();
 const port = 8080;
-const targetUrl = 'https://lmnet.cf';
+const targetUrl = 'https://grok.com';
 
 // Function to check if the target URL is online
 function checkTargetOnline(url) {
